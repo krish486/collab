@@ -1,0 +1,335 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    h1 {
+        color: var(--c4);
+    }
+
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    --c1: rgb(34, 40, 49);
+    --c2: rgb(57, 62, 70);
+    --c3: rgb(0, 173, 181);
+    --c4: rgb(238, 238, 238);
+}
+
+body {
+    main {
+        height: 100%;
+        width: 100%;
+        background-color: var(--c1);
+
+        section.Allelems {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 3rem;
+            padding-top: 2rem;
+
+            .elem {
+                height: 25rem;
+                width: 20rem;
+                overflow: hidden;
+                position: relative;
+                border-radius: 2rem;
+                transition: transform 0.2s ease-in-out;
+                cursor: pointer;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                h1 {
+                    position: absolute;
+                    bottom: 2.5%;
+                    right: 7.5%;
+                    font-family: Montserrat;
+                    border-bottom: solid 2px red;
+                    border-width: 0px;
+                    transition: all 0.2s linear;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        height: 2px;
+                        background-color: #00ADB5;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        transition: transform 0.3s ease;
+                    }
+
+                    &:hover::after {
+                        transform: scaleX(1);
+                    }
+                }
+
+                &:active {
+                    transform: scale(0.98);
+                }
+            }
+
+        }
+
+        .fullelems {
+            height: 100vh;
+            width: 100vw;
+            background-color: var(--c1);
+            display: none;
+            position: absolute;
+            top: 0;
+
+
+
+            .closebtn {
+                position: absolute;
+                top: 2%;
+                right: 2%;
+                background: none;
+                border: none;
+                background-color: var(--c3);
+                font-size: 2rem;
+                color: var(--c4);
+                cursor: pointer;
+                padding: 0.5rem;
+                border-radius: 50%;
+            }
+        }
+
+        .fullelems.todofullpage {
+            #maincontainer {
+                height: 90vh;
+                width: 90vw;
+                margin-left: 5vw;
+                margin-top: 5vh;
+                background-color: transparent;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                .taskadder {
+                    height: 90%;
+                    width: 30%;
+                    background-color: var(--c2);
+                    border-radius: 20px;
+
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: flex-start;
+                        height: 100%;
+                        width: 100%;
+                        gap: 3rem;
+                        padding-top: 1rem;
+
+                        #imp {
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+                            gap: 1rem;
+
+                            input {
+                                width: 2rem;
+                                height: 2rem;
+                                border-radius: 50% !important;
+                                ;
+                            }
+
+                            label {
+                                font-size: 1.5rem;
+                                color: var(--c4);
+                                font-family: Poppins;
+                                white-space: nowrap;
+                            }
+                        }
+
+                        input {
+                            width: 80%;
+                            height: 3rem;
+                            border-radius: 10px;
+                            border: none;
+                            padding: 1rem;
+                            font-size: 1rem;
+                            outline: none;
+                            font-size: 2rem;
+                            font-family: Poppins;
+                            background-color: var(--c4);
+                        }
+
+                        textarea {
+                            width: 80%;
+                            height: 40%;
+                            border-radius: 10px;
+                            border: none;
+                            padding: 0.5rem;
+                            font-size: 1rem;
+                            outline: none;
+                            font-size: 2rem;
+                            font-family: Open Sans;
+                            background-color: var(--c4);
+                        }
+
+                        h3 {
+                            font-size: 2rem;
+                            color: var(--c1);
+                            font-family: Poppins;
+                        }
+
+                        button {
+                            width: 50%;
+                            height: 2.5rem;
+                            border-radius: 10px;
+                            border: none;
+                            background-color: var(--c3);
+                            color: var(--c4);
+                            font-size: 1.5rem;
+                            cursor: pointer;
+                            font-family: Poppins;
+                        }
+                    }
+                }
+
+                .addlist {
+                    height: 90%;
+                    width: 60%;
+                    background-color: green;
+                    border-radius: 20px;
+                    padding-top: 2rem;
+                    display: flex;
+                    align-items: center;
+                    overflow: auto;
+                    gap: 1rem;
+                    flex-direction: column;
+
+                    .task {
+                        width: 95%;
+                        background-color: transparent;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        background-color: grey;
+                        padding: 1rem 2rem;
+                        border-radius: 1rem;
+
+                        .taskdetails {
+                            color: black;
+                            font-size: 1.2rem;
+                            font-family: Open Sans;
+                            margin-left: 1rem;
+                            display: flex;
+                            align-items: center;
+
+                            span.true {
+                                opacity: 1;
+                            }
+
+                            span.false {
+                                opacity: 0;
+                            }
+
+                            .impmarker {
+                                background-color: red;
+                                color: white;
+                                padding: 0.2rem 0.5rem;
+                                border-radius: 0.5rem;
+                                margin-left: 1rem;
+                                font-size: 1rem;
+                            }
+                        }
+
+                        #controlsbutton {
+                            display: flex;
+                            gap: 1rem;
+                            margin-right: 1rem;
+
+                            #Taskhandler {
+                                background-color: var(--c3);
+                                color: var(--c4);
+                                font-family: 'Courier New', Courier, monospace;
+                            }
+
+                            #Taskdeleter {
+                                background-color: red;
+                                color: var(--c4);
+                                font-family: 'Courier New', Courier, monospace;
+                            }
+
+                            .cbutton {
+                                border: none;
+                                border-radius: 10px;
+                                padding: 0.5rem 1rem;
+                                cursor: pointer;
+                                font-family: Poppins;
+                                font-size: 1.5rem;
+                                transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+                                &:hover {
+                                    transform: scale(1.08);
+                                }
+
+                                &:active {
+                                    transform: scale(0.95);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .fullelems.dailyplannerfullpage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        #dailyplanner {
+            background-color: var(--c3);
+            height: 85%;
+            width: 95%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 10px;
+            margin: auto;
+            flex-wrap: wrap;
+            overflow: auto;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .time {
+                width: 49%;
+                background-color: var(--c2);
+                display: flex;
+                color: white;
+                align-items: center;
+
+                input {
+                    height: 5rem;
+                    width: 100%;
+                    background-color: var(--c2);
+                    outline: none;
+                    font-size: 3.5rem;
+                    color: var(--c4);
+                }
+            }
+        }
+    }
+}
